@@ -30,18 +30,19 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-DJANGO_APPS = (
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-)
+]
 
-LOCAL_APPS = (
-    'posts'
-)
+LOCAL_APPS = [
+    'posts',
+    'users'
+]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
@@ -81,9 +82,18 @@ WSGI_APPLICATION = 'platzigram.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django_postgrespool2',
+        'NAME': os.environ['LEXICON_DATABASE'],
+        'USER': os.environ['LEXICON_DATABASE_USER'],
+        'PASSWORD': os.environ['LEXICON_DATABASE_PASSWORD'],
+        'HOST': os.environ['LEXICON_DATABASE_HOST'],
+        'PORT': os.environ['LEXICON_DATABASE_PORT'],
+        'CONN_MAX_AGE': 0
     }
 }
 

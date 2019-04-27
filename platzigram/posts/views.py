@@ -1,4 +1,5 @@
 # Django
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Utilities
@@ -36,8 +37,9 @@ posts = [
 ]
 
 
+@login_required
 def list_posts(requests):
     """
         List existing posts
     """
-    return render(requests, 'feed.html', {'posts': posts})
+    return render(requests, 'posts/feed.html', {'posts': posts})

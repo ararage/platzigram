@@ -1,0 +1,4 @@
+Django==2.2
+django-postgrespool2==0.2.0
+Pillow==6.0.0
+psycopg2-binary==2.8.2

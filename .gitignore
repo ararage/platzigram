@@ -8,6 +8,7 @@ __pycache__/
 
 # Media
 platzigram/users/pictures
+platzigram/media/
 
 # Distribution / packaging
 .Python
